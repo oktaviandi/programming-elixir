@@ -6,6 +6,13 @@ defmodule WeatherHistory do
 
   def for_location_27([_ | tail]), do: for_location_27(tail)
 
+  def for_location([], _), do: []
+
+  def for_location([ head = [_, target, _, _] | tail], target),
+    do: [head | for_location(tail, target)]
+
+  def for_location([_ | tail], target), do: for_location(tail, target)
+
   def test_data do
     [
       [1_366_225_622, 26, 15, 0.125],
