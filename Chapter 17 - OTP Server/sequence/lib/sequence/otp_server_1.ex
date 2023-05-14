@@ -4,7 +4,7 @@ defmodule Sequence.OtpServer1 do
   #####
   # External API
 
-  def init(initial_values) do
+  def start_link(initial_values) do
     GenServer.start_link(__MODULE__, initial_values, name: __MODULE__)
   end
 
